@@ -1,5 +1,7 @@
 import React from 'react';
-import componentStyles from "./App.module.scss"
+import Tablist from './components/tablist/Tablist'
+
+import componentStyles from "./App.module.scss";
 
 function App() {
   return (
@@ -13,7 +15,17 @@ function App() {
         {/* TODO: add routes here */}
 
         {/* Lists screen */}
-
+        <Tablist>
+          <div label="Your Lists">
+            <p>Tab A...</p>
+          </div>
+          <div label="Curated Lists">
+            <p>Tab B...</p>
+          </div>
+          <div label="Public Lists">
+            <p>Tab C...</p>
+          </div>
+        </Tablist>
 
       </main>
 
