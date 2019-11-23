@@ -1,39 +1,24 @@
 import React from 'react';
-import Tablist from './components/tablist/Tablist'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import componentStyles from "./App.module.scss";
+import ListHomePage from './pages/ListHomePage'
+import ActiveListPage from './pages/ActiveListPage'
+// import Tablist from './components/tablist/Tablist';
+// import Layout from './components/layout/Layout';
+// import ButtonLink from './components/buttonLink/ButtonLink';
+
+// import componentStyles from  './App.module.scss';
 
 function App() {
-  return (
-    <div className="App">
-      
-      <header className={componentStyles.header}>
-        <h1>Choozy</h1>
-      </header>
-
-      <main>
-        {/* TODO: add routes here */}
-
-        {/* Lists screen */}
-        <Tablist>
-          <div label="Your Lists">
-            <p>Tab A...</p>
-          </div>
-          <div label="Curated Lists">
-            <p>Tab B...</p>
-          </div>
-          <div label="Public Lists">
-            <p>Tab C...</p>
-          </div>
-        </Tablist>
-
-      </main>
-
-      <footer className={componentStyles.footer}>
-        All content copyrighted {new Date().getFullYear()}
-      </footer>
-
-    </div>
+  return (      
+    <>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={ListHomePage} />
+          <Route exact path="/list" component={ActiveListPage} />
+        </Switch>
+      </Router>
+    </>
   );
 }
 

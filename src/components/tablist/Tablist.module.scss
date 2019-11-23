@@ -1,3 +1,10 @@
+@import "../../styles/_variables";
+
 .tablist{
     display: flex;
+}
+
+.tabContent{
+    padding: 1rem;
+    border: 1px solid $choozyPurple;
 }

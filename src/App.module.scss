@@ -1,22 +1,2 @@
-@import "styles/_variables";
 
-.header{
-  padding: .5rem;
-
-  border-bottom: 1px solid $choozyPurple;
-}
-
-.header,
-.footer{
-    text-align: center;
-    width: 100%;
-}
-
-.footer{
-    position: fixed;
-    bottom: 0;
-    padding: .25rem;
-    background-color: #EEE;
-    font: $smFont;
-}
 

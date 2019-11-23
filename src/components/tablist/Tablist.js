@@ -24,7 +24,6 @@ function Tablist({children, ...props}) {
                     if (child.props.label !== activeTab) return undefined;
                     return child.props.children;
                 })}
-
             </div>
         </>
     );

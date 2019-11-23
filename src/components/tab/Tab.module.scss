@@ -6,11 +6,19 @@
     border: 1px solid white;
     border-radius: .5rem .5rem 0 0;
     transition: all .3s ease-in-out;
+
+    border: 1px solid $choozyPurple;
     border-bottom: 0;
 
+    &:not(:last-child) {
+        margin-right: .5rem;
+    }
+
     &.active{
-       color: $choozyPurple; 
-       border: 1px solid $choozyPurple;
-       border-bottom: 0;
+    //    color: $choozyPurple; 
+    //    border: 1px solid $choozyPurple;
+        background-color: $choozyPurple;
+        color: white;
+        border-bottom: 0;
     }
 }
