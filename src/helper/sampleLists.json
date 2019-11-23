@@ -1,0 +1,27 @@
+{
+
+    "curatedLists": {
+        "categoryName": "Curated Lists",
+        "lists": [
+            "Daily Brave",
+            "Daily Kind"
+        ]
+    },
+
+    "publicLists": {
+        "categoryName": "Public Lists",
+        "lists": [
+            "Dinner Options",
+            "Mental Health",
+            "Date Night"
+        ]
+    },
+
+    "yourLists": {
+        "categoryName": "Your Lists",
+        "lists": [
+            "List A"
+        ]
+    }
+
+}

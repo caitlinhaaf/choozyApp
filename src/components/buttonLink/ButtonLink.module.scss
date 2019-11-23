@@ -1,0 +1,21 @@
+@import "../../styles/_variables";
+
+.buttonLink{
+    display: block;
+    text-decoration: none;
+    background-color: $choozyPurple;
+    color: white;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: .25rem;
+    transition: all .3s ease-in-out;
+    * {
+        color: white;
+    }
+    &:not(:last-child){
+        margin-bottom: .5rem;
+    }
+    &:hover{
+        background-color: darken( $choozyPurple, 10% )
+    }
+}
