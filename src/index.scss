@@ -1,8 +1,10 @@
 @import "styles/_variables";
 
+*,
 body {
   margin: 0;
   font: $bodyFont;
+  // box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -15,8 +17,30 @@ h1,h2,h3,h4,h5{
   margin: 0;
 }
 
+a{
+  color: $choozyPurple;
+}
+a:visited{
+  color: lighten($choozyPurple, 20%);
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.buttonSm{
+  border-radius: 1rem;
+  padding: 1rem;
+  color: $choozyPurple;
+  border: 1px solid $choozyPurple;
+  font-weight: bold;
+  font-size: 1.25 rem;
+  cursor: pointer;
+}
+
+button:focus{
+  // border: 3px solid $choozyPurple;
+  outline: none;
 }
 

@@ -1,12 +1,21 @@
 import React from 'react';
+import { useDispatch } from "react-redux";
 
-import Layout from '../components/layout/Layout'
+import { setListData } from '../utils/actions';
+
+import Layout from '../components/layout/Layout';
 import Tablist from '../components/tablist/Tablist';
 import ButtonLink from '../components/buttonLink/ButtonLink';
 
 import listdata from '../helper/sampleLists.json';
 
 function ListHomePage({...props}) {
+    const dispatch = useDispatch();
+
+    const selectActiveList = (listName, listOptions) => {
+      dispatch( setListData({"listName": listName, "listOptions": listOptions}) )
+    }
+
     return(
         <Layout>
           <Tablist>
@@ -16,8 +25,10 @@ function ListHomePage({...props}) {
                     {listdata[key].lists.map((list, i) => (
                       <ButtonLink 
                         key={i} 
-                        listName={list.listName}
-                        listOptions={list.listOptions}/>
+                        linkRoute='/listlaunch'
+                        btnText={list.listName}
+                        clickEvt={() => selectActiveList(list.listName, list.listOptions) }
+                      />
                     ))}
                   </option>
               ))

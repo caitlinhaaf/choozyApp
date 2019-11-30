@@ -1,23 +1,16 @@
 import React from 'react';
-import {Link} from "react-router-dom";
-import { useDispatch} from "react-redux";
-import {setListData} from '../../utils/actions'
+import { Link } from "react-router-dom";
 
 import componentStyles from "./ButtonLink.module.scss"
 
-function ButtonLink({listName, listOptions, ...props}) {
-    const dispatch = useDispatch();
-
+function ButtonLink({linkRoute, clickEvt, btnText, ...props}) {
     return(
         <Link 
-            to='/listlaunch' 
+            to={linkRoute} 
             className={componentStyles.buttonLink}
-            onClick={() => dispatch(setListData(
-                {"listName": listName, "listOptions": listOptions}
-                ))
-            }
+            onClick={clickEvt}
             >
-            <span>{listName}</span>
+            <span>{btnText}</span>
         </Link>
     )
 }

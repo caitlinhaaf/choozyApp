@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 const initialState = {
     activeListName: null, 
     activeListOptions: null,
+    timerLength: 15000, 
     isCountingDown: false
 }
 
@@ -14,6 +15,12 @@ switch (action.type) {
         return {...state, 
             activeListName: listObj.listName, 
             activeListOptions: listObj.listOptions
+        }
+    }
+
+    case "SET_TIMERLENGTH": {
+        return {...state, 
+            timerLength: action.payload
         }
     }
 

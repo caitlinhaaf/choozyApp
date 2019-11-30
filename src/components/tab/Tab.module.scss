@@ -10,15 +10,20 @@
     border: 1px solid $choozyPurple;
     border-bottom: 0;
 
+    *{
+        color: $choozyPurple;
+    }
+
     &:not(:last-child) {
         margin-right: .5rem;
     }
 
     &.active{
-    //    color: $choozyPurple; 
-    //    border: 1px solid $choozyPurple;
         background-color: $choozyPurple;
         color: white;
         border-bottom: 0;
+        *{
+            color: white;
+        }
     }
 }

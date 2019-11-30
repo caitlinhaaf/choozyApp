@@ -7,10 +7,11 @@ export const setListData = data => (
 
 export const setTimerLength = timerLength => (
     {
-        type: "EVENTS_ERROR",
+        type: "SET_TIMERLENGTH",
         payload: timerLength
     }
 )
+
 
 export const setCountingDown = () => (
     {
