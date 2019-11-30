@@ -3,24 +3,66 @@
     "curatedLists": {
         "categoryName": "Curated Lists",
         "lists": [
-            "Daily Brave",
-            "Daily Kind"
+            {
+                "listName": "Daily Kind",
+                "listOptions":[
+                    "Compliment a friend who needs it",
+                    "Send a surprise gift or card in the mail",
+                    "Pick up 5 pieces of trash on the street today",
+                    "Write a positive review for someone or something",
+                    "Donate $10 to charity"
+                ]
+            },
+            {
+                "listName": "Daily Brave",
+                "listOptions":[
+                    "Ask for brutal honesty from a trusted friend",
+                    "Start a friendly conversation with someone new",
+                    "Reveal a secret about yourself to a trusted friend",
+                    "Try a new language, record yourself and listen",
+                    "Do 20 pushups outside, for all to see"
+                ]
+            }
         ]
     },
 
     "publicLists": {
         "categoryName": "Public Lists",
         "lists": [
-            "Dinner Options",
-            "Mental Health",
-            "Date Night"
+            {
+                "listName": "Dinner Options",
+                "listOptions":[
+                    "Sushi",
+                    "Indian",
+                    "Dim Sum",
+                    "Burgers",
+                    "Pizza"
+                ]
+            },
+            {
+                "listName": "Date Night",
+                "listOptions":[
+                    "Dinner",
+                    "Cocktails",
+                    "Movie",
+                    "Order In"
+                ]
+            }
         ]
     },
 
     "yourLists": {
         "categoryName": "Your Lists",
         "lists": [
-            "List A"
+            {
+                "listName": "Our Date Night",
+                "listOptions":[
+                    "Dinner",
+                    "Cocktails",
+                    "Movie",
+                    "Order In"
+                ]
+            }
         ]
     }
 

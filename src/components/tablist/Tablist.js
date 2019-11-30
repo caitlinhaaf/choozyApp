@@ -4,8 +4,8 @@ import componentStyles from "./Tablist.module.scss";
 import Tab from '../tab/Tab';
 
 function Tablist({children, ...props}) {
-    const [activeTab, setActiveTab] = useState(children[0].props.label)
-    const handleTabClick = (tabClicked) => setActiveTab(tabClicked)
+    const [activeTab, setActiveTab] = useState(children[0].props.label);
+    const handleTabClick = (tabClicked) => setActiveTab(tabClicked);
     
     return (
         <>

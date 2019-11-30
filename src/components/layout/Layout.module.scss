@@ -2,8 +2,15 @@
 
 .header{
   padding: .5rem;
-
   border-bottom: 1px solid $choozyPurple;
+}
+
+.darkHeader{
+    border-bottom: 1px solid white;
+}
+.darkHeader,
+.darkHeader *{
+    color: white;
 }
 
 .header,
@@ -16,8 +23,11 @@
     position: fixed;
     bottom: 0;
     padding: .25rem;
-    background-color: #EEE;
     font: $smFont;
+}
+.darkFooter,
+.darkFooter *{
+    color: white; 
 }
 
 .main{

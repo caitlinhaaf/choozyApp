@@ -1,10 +1,23 @@
 import React from 'react';
+import {Helmet} from 'react-helmet';
 import componentStyles from "./Layout.module.scss"
+// const classNames = require('classnames');
 
-function Layout({...props}) {
+function Layout({darkMode, ...props}) {
+
     return(
         <>
-            <header className={componentStyles.header}>
+            {darkMode &&
+                <Helmet>
+                    <style>
+                        {'body { background-color: #8a509f; }, body * { color: white; }'
+                        }
+                    </style>
+                </Helmet>
+            }
+            
+            <header 
+            className={darkMode ? `${componentStyles.header} ${componentStyles.darkHeader}` : `${componentStyles.header}`}>
                 <h1>Choozy</h1>
             </header>
 
@@ -12,7 +25,8 @@ function Layout({...props}) {
                 {props.children}
             </main>
 
-            <footer className={componentStyles.footer}>
+            <footer 
+            className={darkMode ? `${componentStyles.footer} ${componentStyles.darkFooter}` : `${componentStyles.footer}`}>
                 All content copyrighted {new Date().getFullYear()}
             </footer>
             

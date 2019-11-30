@@ -9,19 +9,20 @@ import listdata from '../helper/sampleLists.json';
 function ListHomePage({...props}) {
     return(
         <Layout>
-
-        <Tablist>
-          {
-            Object.keys(listdata).map((key) => (
-                <option key={key} label={listdata[key].categoryName}>
-                  {listdata[key].lists.map((list, i) => (
-                    <ButtonLink key={i} text={list}/>
-                  ))}
-                </option>
-            ))
-          }
+          <Tablist>
+            {
+              Object.keys(listdata).map((key) => (
+                  <option key={key} label={listdata[key].categoryName}>
+                    {listdata[key].lists.map((list, i) => (
+                      <ButtonLink 
+                        key={i} 
+                        listName={list.listName}
+                        listOptions={list.listOptions}/>
+                    ))}
+                  </option>
+              ))
+            }
         </Tablist>
-
       </Layout>
     )
 }
