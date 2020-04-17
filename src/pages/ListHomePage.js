@@ -7,13 +7,18 @@ import Layout from '../components/layout/Layout';
 import Tablist from '../components/tablist/Tablist';
 import ButtonLink from '../components/buttonLink/ButtonLink';
 
-import listdata from '../helper/sampleLists.json';
+import listdata from '../helper/sampleLists.json'; //TODO: replace with backend data
 
 function ListHomePage({...props}) {
     const dispatch = useDispatch();
 
-    const selectActiveList = (listName, listOptions) => {
-      dispatch( setListData({"listName": listName, "listOptions": listOptions}) )
+    const selectActiveList = (listCategory, listName, listId, listOptions) => {
+      dispatch(setListData({
+        "listCategory": listCategory,
+        "listName": listName,
+        "listId": listId, 
+        "listOptions": listOptions
+      }))
     }
 
     return(
@@ -25,9 +30,16 @@ function ListHomePage({...props}) {
                     {listdata[key].lists.map((list, i) => (
                       <ButtonLink 
                         key={i} 
-                        linkRoute='/listlaunch'
+                        linkRoute={`/listlaunch?category=${key}&listId=${list.listId}`}
                         btnText={list.listName}
-                        clickEvt={() => selectActiveList(list.listName, list.listOptions) }
+                        clickEvt={
+                          () => 
+                          selectActiveList(
+                            key,
+                            list.listName,
+                            list.listId, 
+                            list.listOptions
+                        ) }
                       />
                     ))}
                   </option>

@@ -1,8 +1,13 @@
 import { combineReducers } from 'redux';
 
 const initialState = {
-    activeListName: null, 
+    activeListCategory: null,
+    activeListName: null,
+    activeListId: null, 
     activeListOptions: null,
+
+    activeListPosition: 0,
+    currentWinner: null,
     timerLength: 15000, 
     isCountingDown: false
 }
@@ -13,8 +18,22 @@ switch (action.type) {
     case "SET_LISTDATA": {
     const listObj = action.payload;
         return {...state, 
+            activeListCategory: listObj.listCategory,
             activeListName: listObj.listName, 
+            activeListId: listObj.listId,
             activeListOptions: listObj.listOptions
+        }
+    }
+
+    case "SET_LISTPOSITION": {
+        return {...state, 
+            activeListPosition: action.payload
+        }
+    }
+
+    case "SET_CURRENTWINNER": {
+        return {...state, 
+            currentWinner: action.payload
         }
     }
 
@@ -32,8 +51,11 @@ switch (action.type) {
 
     case "CLEAR_ACTIVELIST": {
         return {...state, 
+            activeListCategory: null,
             activeListName: null, 
-            activeListOptions: null
+            activeListOptions: null,
+            activeListId: null, 
+            activeListPosition: 0
         }
     }
 

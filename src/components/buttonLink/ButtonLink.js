@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 
 import componentStyles from "./ButtonLink.module.scss"
 
-function ButtonLink({linkRoute, clickEvt, btnText, ...props}) {
+function ButtonLink({linkRoute, clickEvt, btnText, outline, ...props}) {
+    const classes = outline ? `${componentStyles.buttonLink} ${componentStyles.outline}` : `${componentStyles.buttonLink} ${componentStyles.solid}`
+
     return(
         <Link 
             to={linkRoute} 
-            className={componentStyles.buttonLink}
+            className={classes}
             onClick={clickEvt}
             >
             <span>{btnText}</span>

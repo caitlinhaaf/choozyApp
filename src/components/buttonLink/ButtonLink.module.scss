@@ -3,19 +3,41 @@
 .buttonLink{
     display: block;
     text-decoration: none;
-    background-color: $choozyPurple;
-    color: white;
     padding: 1rem;
     cursor: pointer;
     border-radius: .25rem;
     transition: all .3s ease-in-out;
-    * {
-        color: white;
-    }
+    text-align: center;
+
+    // max-width: 30rem;
+    // margin: 0 auto;
+    
     &:not(:last-child){
         margin-bottom: .5rem;
     }
+}
+
+.solid{
+    background-color: $choozyPurple;
+    color: white;
+    * {
+        color: white;
+    }
     &:hover{
         background-color: darken( $choozyPurple, 10% )
+    }
+}
+
+.outline{
+    border: 2px solid $choozyPurple;
+    color: $choozyPurple;
+    * {
+        color: $choozyPurple;
+    }
+    &:hover{
+        background-color: $choozyPurple;
+        * {
+            color: white;
+        }
     }
 }

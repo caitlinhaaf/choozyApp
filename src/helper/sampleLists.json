@@ -5,6 +5,7 @@
         "lists": [
             {
                 "listName": "Daily Kind",
+                "listId": "123",
                 "listOptions":[
                     "Compliment a friend who needs it",
                     "Send a surprise gift or card in the mail",
@@ -15,6 +16,7 @@
             },
             {
                 "listName": "Daily Brave",
+                "listId": "456",
                 "listOptions":[
                     "Ask for brutal honesty from a trusted friend",
                     "Start a friendly conversation with someone new",
@@ -31,6 +33,7 @@
         "lists": [
             {
                 "listName": "Dinner Options",
+                "listId": "789",
                 "listOptions":[
                     "Sushi",
                     "Indian",
@@ -41,6 +44,7 @@
             },
             {
                 "listName": "Date Night",
+                "listId": "012",
                 "listOptions":[
                     "Dinner",
                     "Cocktails",
@@ -56,6 +60,7 @@
         "lists": [
             {
                 "listName": "Our Date Night",
+                "listId": "345",
                 "listOptions":[
                     "Dinner",
                     "Cocktails",
