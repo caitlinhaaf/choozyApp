@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-// import { createSelector } from 'reselect';
-import { Link } from "react-router-dom";
-import queryString from "query-string"
-
+import { Link, useParams } from "react-router-dom";
 import { setListData, setTimerLength } from '../utils/actions';
 
 import Layout from '../components/layout/Layout';
@@ -12,21 +9,28 @@ import ButtonLink from '../components/buttonLink/ButtonLink';
 import listdata from '../helper/sampleLists.json'; //TODO: replace with backend data
 
 function LaunchListPage({...props}) {
-    // TODO: if current list not set in state, get query params (category, listId)
+    let { category, id } = useParams();
+
     const dispatch = useDispatch();
     const timerLength = useSelector(state => state.list.timerLength);
     const listName = useSelector(state => state.list.activeListName);
+    const listId = useSelector(state => state.list.activeListId);
 
-    const parsed = queryString.parse(window.location.search);
-
-    console.log(window.location.search);
-    console.log(parsed);
-    // dispatch(setListData({
-    //     "listCategory": listCategory,
-    //     "listName": listName,
-    //     "listId": listId, 
-    //     "listOptions": listOptions
-    // }))
+    // set state using query params,if otherwise undefined
+    useEffect(() => {
+        if(listId===null){
+            const listdataobj = listdata[category].lists.filter(list=>(list.listId===id))[0];
+            console.log(listdataobj)
+            dispatch(setListData(
+                {
+                    "listCategory": category,
+                    "listName": listdataobj.listName,
+                    "listId": id, 
+                    "listOptions": listdataobj.listOptions
+                }
+            ))
+        } 
+    });
 
     return(
         <Layout>
@@ -59,10 +63,11 @@ function LaunchListPage({...props}) {
                         }}>
                         +
                     </button>
+
                 </div>
             </div>
             
-            <ButtonLink linkRoute="/list" btnText='START'/>
+            <ButtonLink linkRoute="/choosing/0" btnText='START'/>
             <ButtonLink linkRoute="/listResult" outline={true} btnText='QUICK CHOOZY'/>
 
             <Link style={{display: `block`, maxWidth: `5rem`, textAlign: `center`, margin: `0 auto`}} to="/">Cancel</Link>

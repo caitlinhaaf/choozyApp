@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-
+import { useParams, useHistory } from "react-router-dom";
 import { setListPosition, setCurrentWinner } from '../utils/actions';
 
 import Layout from '../components/layout/Layout';
@@ -8,7 +8,13 @@ import Timer from '../components/timer/Timer';
 import ButtonLink from '../components/buttonLink/ButtonLink'
 
 function ActiveLinkPage({...props}) {
+
+    // TODO: if active list data not set, re-route to home page
+
+    //TODO: use query params and state to enable navigation back to resubmit question
+    // let { listPosition } = useParams();
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const listName = useSelector(state => state.list.activeListName);
     const listOptions = useSelector(state => state.list.activeListOptions);
@@ -19,7 +25,12 @@ function ActiveLinkPage({...props}) {
     const makeSelection = (winnerPosition) => {
         dispatch(setCurrentWinner(winnerPosition))
         dispatch(setListPosition(listPosition+1));
-      }
+    }
+
+    useEffect(()=>{
+        if(listPosition+1 >= listOptions.length) history.push("/listResult");
+    })
+
 
     return(
         <Layout darkMode={true}>
@@ -29,23 +40,22 @@ function ActiveLinkPage({...props}) {
             
             {/* if no current winner or current position is 0 */}
             {/* grab options at current position, and current position +1 */}
-            {currentWinner ?
+            {currentWinner !== null ?
                 <ButtonLink 
                 clickEvt={() => makeSelection(currentWinner)}
-                linkRoute={`/list?questionNumber=${listPosition + 1}`}
+                linkRoute={`/choosing/${listPosition + 1}`}
                 btnText={listOptions[currentWinner]}/>
                 :
                 <ButtonLink 
                 clickEvt={() => makeSelection(listPosition)}
-                linkRoute={`/list?questionNumber=${listPosition + 1}`}
+                linkRoute={`/choosing/${listPosition + 1}`}
                 btnText={listOptions[listPosition]}/>
             }
             
             <ButtonLink 
                 clickEvt={() => makeSelection(listPosition+1)}
-                linkRoute={`/list?questionNumber=${listPosition + 1}`}
-                btnText={listOptions[listPosition+1]}/>
-
+                linkRoute={`/choosing/${listPosition + 1}`}
+                btnText={listOptions[listPosition+1]} />
         </Layout>
     )
 }

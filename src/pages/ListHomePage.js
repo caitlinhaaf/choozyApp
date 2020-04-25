@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch } from "react-redux";
-
 import { setListData } from '../utils/actions';
 
 import Layout from '../components/layout/Layout';
@@ -30,7 +29,7 @@ function ListHomePage({...props}) {
                     {listdata[key].lists.map((list, i) => (
                       <ButtonLink 
                         key={i} 
-                        linkRoute={`/listlaunch?category=${key}&listId=${list.listId}`}
+                        linkRoute={`/listlaunch/${key}/${list.listId}`}
                         btnText={list.listName}
                         clickEvt={
                           () => 
